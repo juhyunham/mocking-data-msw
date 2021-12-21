@@ -9,7 +9,7 @@ const Item = ({ name, age }) => {
 }
 
 const url =
-  'https://raw.githubusercontent.com/techoi/raw-data-api/main/simple-api.json'
+  'https://raw.githubusercontent.com/techoi/raw-data-api/main/simple-api.json?id=react'
 
 export default function TestMocking() {
   const [data, setData] = useState(null)
@@ -28,6 +28,17 @@ export default function TestMocking() {
       })
   }
 
+  const handleClick2 = () => {
+    fetch('/login')
+      .then((response) => {
+        console.log(response)
+        return response.json()
+      })
+      .then((json) => {
+        console.log(JSON.stringify(json))
+      })
+  }
+
   if (error) {
     return <p>{error}</p>
   }
@@ -35,6 +46,7 @@ export default function TestMocking() {
   return (
     <div>
       <button onClick={handleClick}>데이터 가져오기</button>
+      <button onClick={handleClick2}>데이터 가져오기</button>
       {data && (
         <ul>
           {data.people.map((person, index) => {
