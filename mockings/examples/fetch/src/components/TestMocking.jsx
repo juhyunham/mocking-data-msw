@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 
 const Item = ({ name, age }) => {
   return (
-    <div>
+    <li>
       name: {name} / age: {age}
-    </div>
+    </li>
   )
 }
 
